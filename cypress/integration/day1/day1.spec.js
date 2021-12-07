@@ -59,6 +59,62 @@ describe("Day 1 example of E2E tests", () => {
     cy.get("[data-test=password]").type("secret_sauce");
     //Class name, not the best approach , suspectable to change quite frequently
     cy.get(".submit-button").click();
+    cy.getCookie("session-username").then((cookie) => {
+      expect(cookie.value).to.eq("standard_user");
+    });
     cy.get(".inventory_item").should("be.visible");
+  });
+
+  it("Logging in with a locked user", () => {
+    cy.visit("https://www.saucedemo.com/");
+    cy.get("#user-name").type("locked_out_user");
+    cy.get("[data-test=password]").type("secret_sauce");
+    cy.get(".submit-button").click();
+    cy.get("[data-test=error]").should(
+      "have.text",
+      "Epic sadface: Sorry, this user has been locked out."
+    );
+  });
+
+  it("Missing username error in login page", () => {
+    cy.visit("https://www.saucedemo.com/");
+    cy.get("[data-test=password]").type("secret_sauce");
+    cy.get(".submit-button").click();
+    cy.get("[data-test=error]").should(
+      "have.text",
+      "Epic sadface: Username is required"
+    );
+  });
+
+  it("Missing password error in login page", () => {
+    cy.visit("https://www.saucedemo.com/");
+    cy.get("#user-name").type("locked_out_user");
+    cy.get(".submit-button").click();
+    cy.get("[data-test=error]").should(
+      "have.text",
+      "Epic sadface: Password is required"
+    );
+  });
+
+  it("Invalid user error in login page", () => {
+    cy.visit("https://www.saucedemo.com/");
+    cy.get("#user-name").type("locked_oudsfgdsfgdsfgt_user");
+    cy.get("[data-test=password]").type("secret_sauce");
+    cy.get(".submit-button").click();
+    cy.get("[data-test=error]").should(
+      "have.text",
+      "Epic sadface: Username and password do not match any user in this service"
+    );
+  });
+
+  it("Starting the test case without logging in with UI", () => {
+    cy.setCookie("session-username", "standard_user");
+    cy.visit("https://www.saucedemo.com/inventory.html", {
+      failOnStatusCode: false,
+    });
+  });
+
+  it.only("Showcasing cypress commands", () => {
+    cy.login("standard_user");
   });
 });
