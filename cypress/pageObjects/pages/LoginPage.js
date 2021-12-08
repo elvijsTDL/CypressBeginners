@@ -6,7 +6,7 @@ const SUBMIT_LOGIN_BUTTON = ".submit-button";
 const LOGIN_ERROR = "[data-test=error]";
 
 export class LoginPage extends BasePage {
-  static loginWithUI(username) {
+  static loginWithUI(username = "standard_user") {
     cy.visit("https://www.saucedemo.com");
     this.type(USERNAME_FIELD, username);
     this.type(PASSWORD_FIELD, "secret_sauce");

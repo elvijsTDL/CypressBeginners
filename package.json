@@ -1,9 +1,13 @@
 {
   "dependencies": {
     "cypress": "^9.1.1",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.1",
+    "mochawesome-report-generator": "^6.0.1"
   },
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --record --key 58e5c13e-ee6a-4b90-8333-4b0fea65f244"
   }
 }

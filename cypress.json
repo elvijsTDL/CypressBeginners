@@ -1,4 +1,11 @@
 {
   "defaultCommandTimeout": 4000,
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "projectId": "d7nv6h",
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/results",
+    "html": true,
+    "overwrite": false
+  }
 }
