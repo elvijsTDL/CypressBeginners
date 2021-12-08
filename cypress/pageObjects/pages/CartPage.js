@@ -13,7 +13,7 @@ const CHECKOUT_THANK_YOU_MESSAGE = ".complete-header"
 export class CartPage extends BasePage {
   static verifyAddedItem() {
     cy.get("@addedItem").then((addedItem) => {
-      cy.get(ALL_CART_ITEM_NAMES).should("have.text", addedItem);
+      cy.get(ALL_CART_ITEM_NAMES).first().should("have.text", addedItem);
     });
   }
 
