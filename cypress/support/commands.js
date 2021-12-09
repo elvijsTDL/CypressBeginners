@@ -25,7 +25,7 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("login", (username) => {
-  cy.visit("https://www.saucedemo.com/");
+  cy.visit("/");
   cy.get("#user-name").type(username);
   cy.get("[data-test=password]").type("secret_sauce");
   cy.get(".submit-button").click();
@@ -37,7 +37,7 @@ Cypress.Commands.add("login", (username) => {
 
 Cypress.Commands.add("setLoginCookiesAndLogin", (username) => {
   cy.setCookie("session-username", username);
-  cy.visit("https://www.saucedemo.com/inventory.html", {
+  cy.visit("/inventory.html", {
     failOnStatusCode: false,
   });
 });

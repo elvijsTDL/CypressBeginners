@@ -1,0 +1,20 @@
+{
+  "normal_user": {
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "name": "Tester",
+    "surname": "Testinger",
+    "postal-code": "LV1234"
+  },
+  "locked_user": {
+    "username": "locked_out_user",
+    "password": "secret_sauce"
+  },
+  "different_user": {
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "name": "NotTester",
+    "surname": "NotTestinger",
+    "postal-code": "LV4321"
+  }
+}

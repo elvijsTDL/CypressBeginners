@@ -8,6 +8,8 @@
   },
   "scripts": {
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run --record --key 58e5c13e-ee6a-4b90-8333-4b0fea65f244"
+    "cypress:run": "cypress run --record --key 58e5c13e-ee6a-4b90-8333-4b0fea65f244",
+    "merge-jsons": "mochawesome-merge cypress/results/*.json -o cypress/results/combined.json",
+    "generate-report": "marge cypress/results/combined.json -f report -o cypress/results && mv -v cypress/screenshots cypress/results/assets"
   }
 }
