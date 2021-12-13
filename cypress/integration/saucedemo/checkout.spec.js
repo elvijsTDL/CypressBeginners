@@ -21,8 +21,16 @@ describe("Checkout test cases", () => {
     ProductsPage.goToCart();
     CartPage.verifyAddedItem();
     CartPage.goToCheckout();
-    CartPage.inputUserData();
+    CartPage.inputUserData("normal_user");
     CartPage.verifyAddedItem();
     CartPage.finishCheckoutAndVerifyMessage();
   });
+
+  it.only("Removing items from the cart" , () => {
+    LoginPage.setupUserCookies()
+    LoginPage.setupCartLocalStorage("[1,2,3,4,5]")
+    CartPage.openCartPage()
+    CartPage.removeAllCartItems()
+    CartPage.verifyEmptyCart()
+  })
 });

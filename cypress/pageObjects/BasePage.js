@@ -14,4 +14,8 @@ export class BasePage {
   static hasText(selector, text) {
     cy.get(selector).should("have.text", text);
   }
+
+  static isNotVisible(selector) {
+    cy.get(selector).should("not.be.visible");
+  }
 }

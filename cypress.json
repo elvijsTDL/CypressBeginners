@@ -1,5 +1,7 @@
 {
   "baseUrl": "https://www.saucedemo.com",
+  "viewportHeight": 660,
+  "viewportWidth": 1000,
   "defaultCommandTimeout": 15000,
   "chromeWebSecurity": false,
   "projectId": "d7nv6h",

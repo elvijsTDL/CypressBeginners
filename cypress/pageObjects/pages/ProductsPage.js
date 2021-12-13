@@ -34,16 +34,21 @@ export class ProductsPage extends BasePage {
   static addFirstItemToCart() {
     cy.get(ALL_ADD_TO_CART_BUTTONS).first().click();
     cy.get(ALL_PRODUCT_NAMES)
-      .first()
-      .then((element) => {
-        cy.wrap(element.text()).as("addedItem");
-      });
+        .first()
+        .then((element) => {
+          cy.wrap(element.text()).as("addedItem");
+        });
   }
 
   static verifyRemoveButton() {
     cy.get(ALL_ADD_AND_REMOVE_BUTTONS)
-      .first()
-      .should("have.text", "Remove")
-      .and("have.css", "color", "rgb(71, 76, 85)");
+        .first()
+        .should("have.text", "Remove")
+        .and("have.css", "color", "rgb(71, 76, 85)");
+  }
+
+  static verifyScrolling() {
+    cy.get(ALL_PRODUCT_NAMES).last().scrollIntoView()
+    cy.wait(2000)
   }
 }
