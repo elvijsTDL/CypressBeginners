@@ -1,6 +1,6 @@
 export class BasePage {
   static click(selector) {
-    cy.get(selector).click();
+    cy.get(selector).filter(":visible").click();
   }
 
   static type(selector, text) {

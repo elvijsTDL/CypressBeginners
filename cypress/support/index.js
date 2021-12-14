@@ -28,11 +28,11 @@ Cypress.on("test:after:run", (test, runnable) => {
   }
 });
 
-Cypress.on("uncaught:exception" , (err, runnable )  => {
+Cypress.on("uncaught:exception", (err, runnable) => {
   //To handle specific errors , you can check the error message and handle them as needed
   //   if(err.message.includes("Warning")) {
-      return false
+  return false;
   //    }
   // returning false here prevents Cypress from
   // failing the test case if the application throws an error
-})
+});
